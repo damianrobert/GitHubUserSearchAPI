@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-blue: hsl(212deg, 100%, 50%);
+    --light-gray: hsl(217deg, 20%, 51%);
+    --light-blue-pale: hsl(217deg, 35%, 45%);
+    --tealish-blue: hsl(217deg, 21%, 21%);
+    --ghost-white: hsl(227deg, 100%, 98%);
+    --secondary-white: hsl(0deg, 0%, 100%);
+    --dark-blue: hsl(220deg, 40%, 13%);
+    --dark-tealish-blue: hsl(222deg, 41%, 20%);
+  }
+}
