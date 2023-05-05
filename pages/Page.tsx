@@ -16,6 +16,7 @@ import twitter from "../assets/images/twitter.svg";
 import company from "../assets/images/company.svg";
 
 import { log } from "console";
+import Link from "next/link";
 
 export default function App() {
   const [mounted, setMounted] = useState(false);
@@ -38,6 +39,7 @@ export default function App() {
   const [companyName, setCompanyName] = useState("@github");
   const [blog, setBlog] = useState("Not available");
   const [responseStatus, setResponseStatus] = useState(200);
+  const [htmlLink, setHtmlLink] = useState("https://github.com/");
 
   const searchUser = () => {
     fetch(`https://api.github.com/users/${user}`)
@@ -60,6 +62,8 @@ export default function App() {
           setTwitterUsername(res.twitter_username);
           setCompanyName(res.company);
           setBlog(res.blog);
+          setHtmlLink(res.html_url);
+
           setResponseStatus(200);
         }
       })
@@ -148,7 +152,11 @@ export default function App() {
               <p className="text-base text-left font-bold text-tealishBlue dark:text-ghostWhite">
                 {name}
               </p>
-              <p className="text-[0.8125rem] text-primaryBlue">@{userTag}</p>
+              <Link href={htmlLink} target="_blank">
+                <p className="text-[0.8125rem] text-primaryBlue cursor-pointer">
+                  @{userTag}
+                </p>
+              </Link>
               <p className="text-[0.8125rem] text-lightGray dark:text-ghostWhite">
                 Joined {joined}
               </p>
